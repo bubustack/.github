@@ -45,7 +45,7 @@ body:
       options:
         - label: I have checked the existing issues
           required: true
-        - label: I have read the [Contributing Guidelines]((https://github.com/bubustack/CONTRIBUTING.md)
+        - label: I have read the [Contributing Guidelines](https://github.com/bubustack/CONTRIBUTING.md)
           required: true
         - label: I'd like to work on this issue
   - type: markdown
