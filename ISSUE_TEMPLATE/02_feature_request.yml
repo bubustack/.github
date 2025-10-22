@@ -1,48 +1,48 @@
-name: ✨ Feature request
-description: Suggest a feature for this software
-labels: [enhancement, needs-triage]
+name: "✨ Feature request"
+description: "Suggest a feature for this software"
+labels: ["enhancement", "needs-triage"]
 
 body:
   - type: markdown
     attributes:
       value: |
-        Please fill out the sections below to properly describe the new software feature you are suggesting. If you have a general idea or question then please use the [discussions](https://github.com/orgs/bubustack/discussions).
+        Please fill out the sections below to properly describe the new software feature you are suggesting.
+        If you have a general idea or question then please use the [discussions](https://github.com/orgs/bubustack/discussions).
   - type: textarea
     id: description
     attributes:
       label: "Describe the feature"
-      placeholder: A thing in X that allows to do Y.
+      placeholder: "A thing in X that allows to do Y."
     validations:
       required: true
   - type: textarea
     id: rationale
     attributes:
       label: "It should be done because"
-      placeholder: Doing Y is needed for Z.
+      placeholder: "Doing Y is needed for Z."
     validations:
       required: true
   - type: textarea
     id: alternative
     attributes:
       label: "What are the alternatives?"
-      placeholder: We could do A or B instead.
+      placeholder: "We could do A or B instead."
   - type: textarea
     id: context
     attributes:
-      label: Additional context
-      description: Additional information you want to provide such as references to related issues or protocols, the implications on existing use cases, etc.
-      placeholder: |
-        Add any other context about the feature request here.
+      label: "Additional context"
+      description: "Add references to related issues or use cases, implications, etc."
+      placeholder: "Any other context about the feature request."
   - type: checkboxes
     id: checks
     attributes:
-      label: Extra fields
+      label: "Extra fields"
       options:
-        - label: I have checked the existing issues
+        - label: "I have checked the existing issues"
           required: true
-        - label: I have read the [Contributing Guidelines](https://github.com/bubustack/.github/blob/main/CONTRIBUTING.md)
+        - label: "I have read the Contributing Guidelines"
           required: true
-        - label: I'd like to work on this issue
+        - label: "I'd like to work on this issue"
   - type: markdown
     attributes:
       value: |
