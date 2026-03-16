@@ -1,0 +1,80 @@
+name: Bug Report
+description: Report a reproducible issue in an operator, transport, SDK, Engram, or Impulse
+labels: ["kind/bug", "status/triage"]
+body:
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      description: Which component is affected?
+      multiple: true
+      options:
+        - bobrapet (Story/StoryRun controllers)
+        - bobravoz-grpc (transport operator)
+        - bubu-sdk-go
+        - Engram (specify below)
+        - Impulse (specify below)
+        - Docs / website
+    validations:
+      required: true
+
+  - type: input
+    id: component-name
+    attributes:
+      label: Engram / Impulse name (if applicable)
+      placeholder: "e.g. openai-chat-engram v0.3.0"
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the bug. Include the expected behavior and what you observed instead.
+      placeholder: "When I apply the StoryRun, the step fails with..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Steps, commands, and YAML manifests to reproduce the issue.
+      render: yaml
+      placeholder: |
+        apiVersion: bubustack.io/v1alpha1
+        kind: Story
+        metadata:
+          name: example
+        spec:
+          ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs and traces
+      description: "Controller logs (`kubectl logs`), StoryRun/StepRun status, or transport logs. Set `BUBU_DEBUG=true` if possible."
+      render: shell
+
+  - type: input
+    id: kubernetes-version
+    attributes:
+      label: Kubernetes version
+      placeholder: "e.g. 1.31.2 on Kind / EKS / GKE"
+    validations:
+      required: true
+
+  - type: input
+    id: bubustack-version
+    attributes:
+      label: BubuStack version
+      description: Helm chart version or operator image tag
+      placeholder: "e.g. 0.5.0 or ghcr.io/bubustack/bobrapet:v0.5.0"
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Custom overrides, secrets/providers, recent upgrades, or anything else we should know.

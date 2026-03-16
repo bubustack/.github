@@ -2,9 +2,9 @@
 
 ## Supported versions
 
-We provide security updates for the latest released minor of the operator. Please ensure you are using a supported version to receive security patches. We generally support the latest minor and the immediately previous minor.
+We provide security updates for the latest released minor of every actively maintained component (bobrapet, bobravoz-grpc, bubu-sdk-go, and first-party Engrams/Impulses). Please ensure you are using a supported version to receive security patches. We generally support the latest minor and the immediately previous minor for each repo.
 
-Supported Kubernetes versions: we aim to support N-2 of upstream stable releases. For example, when Kubernetes 1.31 is current, we target 1.31, 1.30, 1.29. See `config/crd/kustomization.yaml` and CI matrices for exact compatibility.
+Supported Kubernetes versions: we aim to support N-2 of upstream stable releases across the operators and Engrams. For example, when Kubernetes 1.31 is current, we target 1.31, 1.30, 1.29. See each repository’s `config/` directory and CI matrices for exact compatibility guarantees.
 
 ## Reporting a vulnerability
 
@@ -20,7 +20,7 @@ When reporting a vulnerability, please provide the following information:
 
 - **A clear description** of the vulnerability and its potential impact.
 - **Steps to reproduce** the vulnerability, including any example code, scripts, or configurations.
-- **The version(s) of the operator** affected.
+- **The version(s) of the component (operator, transport, SDK, Engram, or Impulse)** affected.
 - **Your contact information** for us to follow up with you.
 
 ## Disclosure process
@@ -34,4 +34,3 @@ When reporting a vulnerability, please provide the following information:
 We aim to resolve high severity vulnerabilities within 30 days, medium within 60 days, and low within 90 days, subject to complexity and scope. We'll keep you informed of progress.
 
 We aim to resolve all vulnerabilities as quickly as possible. The timeline for a fix and disclosure will vary depending on the complexity and severity of the vulnerability. We will keep you informed of our progress throughout the process.
-

@@ -1,64 +1,83 @@
-# Contributing to bobrapet (operator)
+# Contributing to BubuStack
 
-First off, thank you for considering contributing. Your help is appreciated.
+BubuStack is a Kubernetes-native automation stack composed of the **bobrapet** operator, the **bobravoz-grpc** transport plane, the **bubu-sdk-go**, and a growing catalog of Engrams and Impulses. Every repo follows the same principle: *DOTADIW (Do One Thing And Do It Well)* with declarative APIs, clean GitOps workflows, and production-grade reliability. Thank you for helping us keep that bar high.
 
-This document provides guidelines for contributing to the operator and its docs. Please read it carefully to ensure a smooth collaboration process.
+## Choose the right home for your change
 
-## How Can I Contribute?
+- Use the repository that matches your change (operator, transport, SDK, Engram/Impulse, docs, or examples). Repository-specific READMEs describe any extra steps.
+- For cross-cutting proposals, start a thread in [org-wide Discussions](https://github.com/orgs/bubustack/discussions) so we can coordinate controller+SDK changes together.
+- Security issues must follow the process in [SECURITY.md](./SECURITY.md); please do **not** open a public issue.
 
-### Reporting Bugs
+## Reporting bugs
 
-- **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/bubustack/issues).
-- If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/bubustack/issues/new). Be sure to include a **title and clear description**, as much relevant information as possible, and a **code sample** or an **executable test case** demonstrating the expected behavior that is not occurring.
+1. Search the relevant repository issue tracker for existing reports.
+2. When filing a new bug report, include:
+   - Component (`bobrapet`, `http-request-engram`, `bubu-sdk-go`, etc.).
+   - Kubernetes version and cluster type.
+   - Custom Resources (`Story`, `StoryRun`, `Engram`, `Impulse`, `TransportBinding`, etc.) or sample manifests.
+   - Controller/Engram pod logs (`kubectl logs`), SDK traces, or Stream payloads if applicable.
+3. Tag issues with `kind/bug` and, if relevant, `area/operator`, `area/engram`, `area/sdk`, or `area/transport` to help us triage.
 
-### Suggesting Enhancements
+## Requesting features / new components
 
-- Open a new issue to discuss your enhancement. Clearly describe the proposed enhancement and its benefits.
-- Provide code snippets, mockups, or diagrams to illustrate your idea.
+- Use the issue template to describe *why* the change is needed, not just the implementation. Helpful inputs include workload scale, latency budgets, tenancy constraints, and whether the change affects EngramTemplates, ImpulseTemplates, or SDK contracts.
+- For brand-new Engram/Impulse ideas, share proposed `spec.with` fields alongside the Bobrapet Story snippet so we can validate the CRD shape before implementation.
+- When asking for new transports, describe the streaming requirements (e.g., WebRTC, gRPC, or webhook semantics) so we can confirm they slot cleanly into the `bobravoz-grpc` surface.
 
-### Pull Requests
+## Pull requests
 
-- Fork the repository and create your branch from `main`.
-- Ensure the test suite passes: `make test` (envtest will be installed automatically).
-- Lint: `make lint` (golangci-lint via ./bin).
-- Regenerate CRDs when touching API types: `make generate`.
-- Submit the pull request.
+1. **Fork and branch** from `main`. Keep each PR focused on one change-set (e.g., a new Engram parameter or a controller reconciliation tweak).
+2. **Discuss breaking changes early.** If you need to evolve CRDs or SDK types, open a design issue first so downstream integrations can prepare.
+3. **Run the relevant quality gates** before opening the PR:
+   - Operators / transport controller: `make lint`, `make test`, `make generate`, `make manifests`, and (optionally) `make deploy IMG=<registry>/bobrapet:dev`.
+   - Engrams, impulses, SDK (Go): `make lint`, `make test`, `make docker-build IMG=<registry>/<component>:dev`.
+   - TypeScript/Node repos (e.g., `bubustack/website` or agent samples): `pnpm install`, `pnpm lint`, `pnpm test`, `pnpm build`.
+4. **Document user-facing changes.** Update README/CHANGELOG/CRD docs plus Engram or Impulse templates when you add fields or alter defaults.
+5. **Link issues and test evidence** in the PR template. For controller work, include the `kubectl` commands or Kind/e2e scripts you ran.
 
-## Development Workflow
+## Development workflow
 
-### Prerequisites
+### Operators & controllers (bobrapet, bobravoz-grpc)
 
-- Go 1.24+
-- Docker
-- `make`
+- **Prerequisites:** Go 1.25.1+, Docker or another OCI builder, `kubectl`, access to a Kubernetes cluster (Kind/Minikube is fine).
+- **Common targets:** `make lint`, `make test`, `make test-e2e`, `make generate`, `make manifests`, `make deploy IMG=<registry>/<name>:tag`.
+- **Samples:** `config/samples` contains CRDs that can be applied via `kubectl apply -k config/samples` to smoke-test Stories, StoryRuns, Engrams, and Impulses.
+- **CRD changes:** Run `make generate` and `make manifests` to refresh `api/*` deep-copies and `config/crd/bases/*.yaml`.
 
-### Setup
+### SDK + Engrams/Impulses (Go)
 
-1.  Fork the repository.
-2.  Clone your fork: `git clone https://github.com/your_username/bobrapet.git`
-3.  Navigate to the repository directory: `cd bobrapet`
-4.  Build: `make build`
+- **Prerequisites:** Go 1.25.1+, Docker, `make`.
+- **Quality gates:** `make fmt`, `make lint`, `make test`, `make docker-build IMG=<registry>/<component>:dev`.
+- **Runtime verification:** Use `kubectl apply -f Engram.yaml` (or Helm/Kustomize overlays) plus a test `Story` to validate overrides, streaming modes, and `BUBU_DEBUG` logging.
 
-### Running Tests
+### JavaScript/TypeScript projects (website, agent starter kits)
 
-```bash
-# Run all tests
-make test
-```
+- **Prerequisites:** Match the versions declared in each `package.json` (`node >=22` & `pnpm >=10` for the agent starter, `node >=20` for the docs site). Use the package manager the repo already uses (pnpm where a `pnpm-lock.yaml` exists, npm/yarn elsewhere).
+- **Common scripts:** `pnpm install && pnpm lint && pnpm test && pnpm build` for pnpm-based repos, or `npm install && npm run build` for Docusaurus/docs.
+- **Testing:** Keep E2E credentials out of commits; store secrets in `.env.local` and supply mock fixtures for CI.
 
-### Commit Message Conventions
+### Documentation & community health
 
-We follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification. This allows for automated changelog generation and semantic versioning.
+- Markdown files live alongside the code they describe. Run `pnpm format` or `make fmt` where provided to keep formatting consistent.
+- Organization-wide policies (Code of Conduct, Security, Support) are sourced from this `.github` repository—update them here first, then sync downstream if needed.
 
-Examples:
-- `feat: Add support for custom retry policies`
-- `fix: Correctly handle nil inputs in Process`
-- `docs: Update README with new quickstart`
-- `chore: Upgrade to Go 1.24`
+## Commit style & reviews
 
-### Code of Conduct
+- Follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) so release automation can build CHANGELOG entries.
+- Rebase or merge `main` before requesting review when conflicts arise.
+- Every PR must pass CI, include tests (or rationale when tests are not applicable), and leave the tree in a deployable state.
 
-Participation in this project is governed by the
-[Contributor Covenant Code of Conduct](./CODE_OF_CONDUCT.md). By participating,
-you are expected to uphold this code. Please report unacceptable behavior to
-conduct@bubustack.com.
+## Issue labels
+
+All repositories sync a shared label taxonomy defined in `.github/labels.yml`. Please:
+
+- Apply exactly one `kind/*` label (bug, feature, docs, refactor, tests, chore).
+- Add one or more `area/*` labels (operator, transport, SDK, engram, impulse, docs) plus `priority/*` if known.
+- Use `status/*` labels to reflect triage state (`status/triage`, `status/needs-info`, `status/in-progress`, `status/blocked`, `status/ready`).
+- Leave the `dependencies` label on automation-driven PRs (e.g., Dependabot) so release tooling can batch them correctly.
+
+If you introduce a new architectural surface, extend `.github/labels.yml` first so the taxonomy stays consistent before using bespoke labels in a single repo.
+
+## Code of Conduct
+
+Participation in any BubuStack space is governed by the [Contributor Covenant Code of Conduct](./CODE_OF_CONDUCT.md). Report unacceptable behaviour to [conduct@bubustack.com](mailto:conduct@bubustack.com) or via the org Discussions moderation form.

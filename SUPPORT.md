@@ -12,8 +12,8 @@ Thank you for using BubuStack. Here's how you can get help.
 
 For questions, discussions, and community support, please use the following channels:
 
-- **GitHub Issues**: For bug reports and feature requests, please open an issue: https://github.com/bubustack/.github/issues
-- **GitHub Discussions**: For general questions and sharing your projects, please use Discussions: https://github.com/orgs/bubustack/discussions
+- **GitHub Issues**: File bugs and feature requests in the repository that hosts the affected component (e.g., `bubustack/bobrapet` for operator issues, `bubustack/http-request-engram` for that Engram). Use https://github.com/orgs/bubustack/repositories to jump directly to each tracker.
+- **Org-wide Discussions**: For architectural topics, roadmap questions, or design proposals spanning multiple repos, use https://github.com/orgs/bubustack/discussions.
 
 ### Triage and response SLAs (best effort)
 
@@ -23,8 +23,8 @@ For questions, discussions, and community support, please use the following chan
 
 ### Supported versions
 
-- We generally support the latest minor release and the previous minor release of the operator.
-- Kubernetes compatibility target: N-2 upstream stable releases.
+- We generally support the latest minor release and the previous minor release of each maintained component (bobrapet, bobravoz-grpc, bubu-sdk-go, first-party Engrams/Impulses).
+- Kubernetes compatibility target: N-2 upstream stable releases across operators and Engrams, matching the versions we validate in CI.
 
 ## Commercial support
 
@@ -37,4 +37,4 @@ To report a security vulnerability, please follow the instructions in our [Secur
 ### Related documentation
 
 - Troubleshooting: https://bubustack.io/docs/troubleshooting
-- Known issues: https://github.com/bubustack/.github/issues
+- Known issues (component-specific): browse open issues across https://github.com/orgs/bubustack/repositories

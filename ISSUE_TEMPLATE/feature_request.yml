@@ -1,0 +1,53 @@
+name: Feature Request
+description: Pitch a new capability for the operator, transport, SDK, Engram, or docs
+labels: ["kind/feature", "status/triage"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+      description: What workflow or operational gap are you trying to solve? Include scale, latency, or compliance constraints if relevant.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-change
+    attributes:
+      label: Proposed change
+      description: Describe the behavior you'd like to see. If this affects CRDs, Engram templates, or SDK APIs, show the new fields.
+      render: yaml
+    validations:
+      required: true
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Affected component(s)
+      multiple: true
+      options:
+        - bobrapet
+        - bobravoz-grpc
+        - bubu-sdk-go
+        - Engram (specify below)
+        - Impulse (specify below)
+        - Docs / website
+    validations:
+      required: true
+
+  - type: input
+    id: component-name
+    attributes:
+      label: Engram / Impulse name (if applicable)
+      placeholder: "e.g. openai-chat-engram"
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What did you try already? (custom Engram, go templates, external controller, different transport, etc.)
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Links, design docs, screenshots, or related issues/discussions.

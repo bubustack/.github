@@ -1,0 +1,38 @@
+name: Documentation Update
+description: Request a documentation, support, or example update
+labels: ["kind/docs", "status/triage"]
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      multiple: true
+      options:
+        - Operator docs / architecture
+        - Engram or Impulse README
+        - SDK reference (Go examples)
+        - Website / tutorials / blog
+        - Examples
+        - Community health file (Code of Conduct, Security, Support, etc.)
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-needs-to-change
+    attributes:
+      label: What needs to change?
+      description: Link to the existing page/file and describe what is missing or incorrect.
+    validations:
+      required: true
+
+  - type: textarea
+    id: source-of-truth
+    attributes:
+      label: Source of truth
+      description: Add the CRD, code snippet, or log output that proves the correct behavior so we can update the doc with confidence.
+
+  - type: textarea
+    id: suggested-fix
+    attributes:
+      label: Suggested fix (optional)
+      description: Share wording, diagrams, or commands that would resolve the issue.
