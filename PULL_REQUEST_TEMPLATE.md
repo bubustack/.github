@@ -31,6 +31,7 @@ Closes #
 - [ ] Helm charts
 - [ ] Examples
 - [ ] Docs / website
+- [ ] Org .github / community health
 
 ## Checklist
 
