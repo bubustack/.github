@@ -1,6 +1,6 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://bubustack.io/img/logo-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://bubustack.io/img/logo-light.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://bubustack.io/img/bubustack.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://bubustack.io/img/bubustack.png">
   <img alt="BubuStack" src="https://bubustack.io/img/logo-light.svg" width="320">
 </picture>
 
