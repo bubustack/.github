@@ -1,6 +1,6 @@
 name: Documentation Update
 description: Request a documentation, support, or example update
-labels: ["kind/docs", "status/triage"]
+labels: ["kind/docs", "area/docs", "status/triage"]
 body:
   - type: dropdown
     id: area
