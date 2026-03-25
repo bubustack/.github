@@ -86,6 +86,7 @@ Read the full [Contributing Guide](https://github.com/bubustack/.github/blob/mai
 
 - [Documentation](https://bubustack.io/docs) — Guides, API reference, and architecture deep dives
 - [GitHub Discussions](https://github.com/orgs/bubustack/discussions) — Questions, proposals, and community conversations
+- [Discord](https://discord.gg/dysrB7D8H6) — Real-time chat for contributors and users
 - [Security Policy](https://github.com/bubustack/.github/blob/main/SECURITY.md) — Responsible disclosure process
 - [Code of Conduct](https://github.com/bubustack/.github/blob/main/CODE_OF_CONDUCT.md) — Contributor Covenant 3.0
 

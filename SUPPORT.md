@@ -15,7 +15,7 @@ For questions, discussions, and community support, please use the following chan
 
 - **GitHub Issues**: File bugs and feature requests in the repository that hosts the affected component. Use https://github.com/orgs/bubustack/repositories to jump directly to each tracker.
 - **Org-wide Discussions**: For architectural topics, roadmap questions, or design proposals spanning multiple repos, use https://github.com/orgs/bubustack/discussions.
-- **Discord**: https://discord.gg/bubustack
+- **Discord**: https://discord.gg/dysrB7D8H6
 
 ### Triage and response expectations
 
