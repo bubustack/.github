@@ -1,13 +1,13 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://bubustack.io/img/banner.png">
   <source media="(prefers-color-scheme: light)" srcset="https://bubustack.io/img/banner.png">
-  <img alt="BubuStack" src="https://bubustack.io/img/banner.png" width="640">
+  <img alt="BubuStack" src="https://bubustack.io/img/banner.png">
 </picture>
 
 ### Kubernetes-native workflow runtime for batch DAGs and streaming pipelines.
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Kubernetes](https://img.shields.io/badge/Kubernetes-1.29+-326CE5?logo=kubernetes&logoColor=white)](https://kubernetes.io)
+[![Kubernetes](https://img.shields.io/badge/Kubernetes-1.30+-326CE5?logo=kubernetes&logoColor=white)](https://kubernetes.io)
 [![Go](https://img.shields.io/badge/Go-1.25+-00ADD8?logo=go&logoColor=white)](https://go.dev)
 
 ---
@@ -51,7 +51,7 @@ kubectl get storyruns,stepruns -n hello-world -w
 | [`bubuilder`](https://github.com/bubustack/bubuilder) | UI and API work for browsing runs, stories, and engrams |
 | [`bubu-registry`](https://github.com/bubustack/bubu-registry) | Registry and packaging work for sharing Engrams and Impulses |
 | [`helm-charts`](https://github.com/bubustack/helm-charts) | Helm charts for bobrapet, bobravoz-grpc, and bubuilder |
-| [`engrams/*`](https://github.com/orgs/bubustack/repositories?q=engram) | First-party Engrams — HTTP, OpenAI, LiveKit, MCP, VAD, and more |
+| [`engrams/*`](https://github.com/orgs/bubustack/repositories?q=engram) | First-party Engrams — HTTP, OpenAI, LiveKit Bridge, MCP, VAD, Map-Reduce, and more |
 | [`impulses/*`](https://github.com/orgs/bubustack/repositories?q=impulse) | First-party Impulses — Cron, GitHub webhooks, Kubernetes events, LiveKit webhooks |
 
 ## Examples
@@ -66,7 +66,7 @@ kubectl get storyruns,stepruns -n hello-world -w
 | [Multi-Model Consensus](https://github.com/bubustack/examples/tree/main/batch/multi-model-consensus) | Batch | Same template with different configs, fan-in judge pattern, structured output |
 | [GitHub PR Review](https://github.com/bubustack/examples/tree/main/batch/github-pr-review) | Batch | AI-powered PR review - GitHub webhooks, diff analysis, automated comments |
 | [Materialize Demo](https://github.com/bubustack/examples/tree/main/batch/materialize-demo) | Batch | Offloaded data handling - storage refs, materialization, controller-mode resolution |
-| [Pod Crash Notifier](https://github.com/bubustack/examples/tree/main/realtime/pod-crash-notifier) | Streaming | Kubernetes event watch, AI crash analysis, Discord alerts |
+| [Pod Crash Notifier](https://github.com/bubustack/examples/tree/main/batch/pod-crash-notifier) | Batch | Kubernetes event watch, AI crash analysis, Discord alerts |
 | [LiveKit Voice Assistant](https://github.com/bubustack/examples/tree/main/realtime/livekit-voice) | Streaming | Voice and chat dual-mode - VAD, STT, LLM, TTS with a parallel chat path |
 | [LiveKit Text Chat](https://github.com/bubustack/examples/tree/main/realtime/livekit-chat) | Streaming | Text-only chat assistant via LiveKit data channels |
 
