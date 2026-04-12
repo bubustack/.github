@@ -9,6 +9,7 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Kubernetes](https://img.shields.io/badge/Kubernetes-1.30+-326CE5?logo=kubernetes&logoColor=white)](https://kubernetes.io)
 [![Go](https://img.shields.io/badge/Go-1.25+-00ADD8?logo=go&logoColor=white)](https://go.dev)
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/bubustack)](https://artifacthub.io/packages/search?repo=bubustack)
 
 ---
 
@@ -23,19 +24,13 @@ BubuStack is an open-source toolkit for declarative, composable workflows on Kub
 
 ## Quickstart
 
-```bash
-# Install the operator
-helm install bubustack oci://ghcr.io/bubustack/charts/bubustack
+For fresh cluster setup, cert-manager, storage, Helm installation, and the
+first example, start with the website quickstart:
 
-# Deploy a hello-world Story
-kubectl apply -f https://raw.githubusercontent.com/bubustack/examples/main/batch/hello-world/bootstrap.yaml
-kubectl apply -f https://raw.githubusercontent.com/bubustack/examples/main/batch/hello-world/engrams.yaml
-kubectl apply -f https://raw.githubusercontent.com/bubustack/examples/main/batch/hello-world/story.yaml
-
-# Trigger a run and watch it execute
-kubectl apply -f https://raw.githubusercontent.com/bubustack/examples/main/batch/hello-world/storyrun.yaml
-kubectl get storyruns,stepruns -n hello-world -w
-```
+- [Quickstart](https://bubustack.io/docs/getting-started/quickstart)
+- [Prerequisites](https://bubustack.io/docs/getting-started/prerequisites)
+- [Artifact Hub: bobrapet Helm chart](https://artifacthub.io/packages/search?repo=bubustack&ts_query_web=bobrapet)
+- [Artifact Hub: bobravoz-grpc Helm chart](https://artifacthub.io/packages/search?repo=bubustack&ts_query_web=bobravoz-grpc)
 
 ## Repositories
 
