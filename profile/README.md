@@ -62,8 +62,11 @@ first example, start with the website quickstart:
 | [GitHub PR Review](https://github.com/bubustack/examples/tree/main/batch/github-pr-review) | Batch | AI-powered PR review - GitHub webhooks, diff analysis, automated comments |
 | [Materialize Demo](https://github.com/bubustack/examples/tree/main/batch/materialize-demo) | Batch | Offloaded data handling - storage refs, materialization, controller-mode resolution |
 | [Pod Crash Notifier](https://github.com/bubustack/examples/tree/main/batch/pod-crash-notifier) | Batch | Kubernetes event watch, AI crash analysis, Discord alerts |
-| [LiveKit Voice Assistant](https://github.com/bubustack/examples/tree/main/realtime/livekit-voice) | Streaming | Voice and chat dual-mode - VAD, STT, LLM, TTS with a parallel chat path |
 | [LiveKit Text Chat](https://github.com/bubustack/examples/tree/main/realtime/livekit-chat) | Streaming | Text-only chat assistant via LiveKit data channels |
+| [LiveKit Live Translation](https://github.com/bubustack/examples/tree/main/realtime/livekit-translation) | Streaming | English-to-French speech translation with VAD, STT, LLM, and TTS |
+| [LiveKit Voice Assistant](https://github.com/bubustack/examples/tree/main/realtime/livekit-voice) | Streaming | Voice and chat dual-mode - VAD, STT, LLM, TTS with a parallel chat path |
+
+Watch the LiveKit realtime examples demo: [YouTube](https://www.youtube.com/watch?v=b8vu0J1kJ-c).
 
 ## Contributing
 
